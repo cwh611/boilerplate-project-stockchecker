@@ -8,11 +8,10 @@ const fetch = require('node-fetch');
 const { Client } = require('pg');
 
 const client = new Client({
-  host: 'localhost', 
-  port: 5432,
-  database: 'stockchecker', 
-  user: 'chuck', 
-  password: 'L@uriverychi11!'
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Required for secure Heroku connection
+  },
 });
 
 client.connect()
