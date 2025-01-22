@@ -3,6 +3,21 @@ require('dotenv').config();
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const cors        = require('cors');
+const fetch = require('node-fetch');
+// remember to install node-fetch and update package files
+const { Client } = require('pg');
+
+const client = new Client({
+  host: 'localhost', 
+  port: 5432,
+  database: 'stockchecker', 
+  user: 'chuck', 
+  password: 'L@uriverychi11!'
+});
+
+client.connect()
+  .then(() => console.log('Connected to PostgreSQL'))
+  .catch((err) => console.error('PostgreSQL connection error', err.stack));
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');

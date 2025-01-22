@@ -1,22 +1,21 @@
-document.getElementById('testForm2').addEventListener('submit', e => {
-  e.preventDefault();
-  const stock = e.target[0].value;
-  const checkbox = e.target[1].checked;
-  fetch(`/api/stock-prices/?stock=${stock}&like=${checkbox}`)
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('jsonResult').innerText = JSON.stringify(data);
-    });
-});
+document.getElementById("submit-btn").addEventListener("click", () => {
+  const stock_1 = document.getElementById("stock-1-input").value.trim;
+  const stock_2 = document.getElementById("stock-2-input").value.trim;
+  if (!stock_1 && !stock_2) return alert("Please input at least one stock");
+  const baseUrl = new URL('app.heroku/api/stock-prices?');
+  let url = `${baseUrl}stock=${stock_1}`
+  if (stock_2) url += `&stock=${stock_2}`
+  if (document.getElementById("like-input").value === "like") {
+    url += "&like=true"
+  }
 
-document.getElementById('testForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const stock1 = e.target[0].value;
-  const stock2 = e.target[1].value;
-  const checkbox = e.target[2].checked;
-  fetch(`/api/stock-prices?stock=${stock1}&stock=${stock2}&like=${checkbox}`)
-    .then(res => res.json())
+  fetch(url)
+    .then(response => response.json())
     .then(data => {
-      document.getElementById('jsonResult').innerText = JSON.stringify(data);
+      console.log('Response:', data);
+      document.getElementById("results-container").innerText = data
+    })
+    .catch(error => {
+      console.error('Error fetching stock prices:', error);
     });
 });
