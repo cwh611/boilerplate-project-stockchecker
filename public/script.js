@@ -13,7 +13,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
     .then(response => response.json())
     .then(data => {
       console.log('Response:', data);
-      document.getElementById("results-container").innerText = data
+      document.getElementById("results-container").innerText = JSON.stringify(data)
     })
     .catch(error => {
       console.error('Error fetching stock prices:', error);
