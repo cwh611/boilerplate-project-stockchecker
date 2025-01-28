@@ -4,15 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Prices</title>
-    <link rel="stylesheet" href="public/style.csss">
+    <link rel="stylesheet" href="public/style.css">
   </head>
   <body>
+    <header>
+      <h1>
+        NASDAQ Stock Checker
+      </h1>
+    </header>
     <main>
-      <input id="stock-1-input" type="text">
-      <input id="stock-2-input" type="text">
-      <input id="like-input" type="checkbox" value="like"> 
-      <button id="submit-btn" type="button">Check / compare stock(s)</button>
       <div id="results-container">
+      </div>
+      <div id="main-input-container">
+        <div id="stock-input-container">
+          <input id="stock-1-input" type="text" placeholder="GOOG">
+          <input id="stock-2-input" type="text" placeholder="MSFT">
+        </div>
+        <div id="like-container">
+          <label for="like-input" id="like-input-label">
+            Like stock(s)
+          </label>
+          <input id="like-input" type="checkbox" value="like">
+        </div>
+        <button id="submit-btn" type="button">Check / compare stock(s)</button>
       </div>
     </main>
     <script src="public/script.js">

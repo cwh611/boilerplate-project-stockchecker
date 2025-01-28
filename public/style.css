@@ -1,28 +1,61 @@
-#userstories {
-  margin-left: 5%;
-  margin-top: 5%;
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace
 }
 
-.p-50 {
-  margin: 50px;
+h1 {
+  text-align: center
 }
 
-#testui {
-  margin-left: 5%;
+main {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.text-align-left {
-  text-align: left;
+#results-container {
+  flex: 1;
+  height: 100%;
+  width: 100%
 }
 
-input[type='text'] {
-  width: 100px;
+#main-input-container {
+  flex: 2;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 
-.m-50 {
-  margin: 50px;
+#stock-input-container {
+  margin-bottom: 10px;
 }
 
-.mt-200 {
-  margin-top: 200px;
+#stock-1-input {
+  margin-right: 10px
+}
+
+#stock-1-input, #stock-2-input {
+  font-family: "Courier New", Courier, monospace
+}
+
+label {
+  margin-right: 10px
+}
+
+#like-container {
+  margin-bottom: 10px
+}
+
+button {
+  font-family: "Courier New", Courier, monospace
 }
