@@ -5,24 +5,23 @@ const bodyParser  = require('body-parser');
 const cors        = require('cors');
 const fetch = require('node-fetch');
 // remember to install node-fetch and update package files
-const { Client } = require('pg');
-
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false, // Required for secure Heroku connection
-  },
-});
-
-client.connect()
-  .then(() => console.log('Connected to PostgreSQL'))
-  .catch((err) => console.error('PostgreSQL connection error', err.stack));
+const helmet = require('helmet');
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
 const app = express();
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'"],
+    },
+  })
+);
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
