@@ -7,7 +7,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
   const baseUrl = new URL('https://chunk-stockchecker-4201c325fca9.herokuapp.com/api/stock-prices?');
   let url = `${baseUrl}stock=${stock_1}`
   if (stock_2) url += `&stock=${stock_2}`
-  if (document.getElementById("like-input").value === "like") {
+  if (document.getElementById("like-input").checked) {
     url += "&like=true"
   }
 
@@ -15,6 +15,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
     .then(response => response.json())
     .then(data => {
       const result = JSON.stringify(data);
+      console.log("RESULT:", result)
       if (!Array.isArray(result.stockData)) {
         output.innerHTML = `
           <div>
