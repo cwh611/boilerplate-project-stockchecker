@@ -35,7 +35,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
               $${data.stockData[0].price}
             </div>
             <div>
-              Likes: ${data.stockData[0].rel_likes}
+              Relative Likes: ${data.stockData[0].rel_likes}
             </div>
           </div>
           <div>
@@ -46,7 +46,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
               $${data.stockData[1].price}
             </div>
             <div>
-              Likes: ${data.stockData[1].rel_likes}
+              Relative Likes: ${data.stockData[1].rel_likes}
             </div>
           </div>`
       }
