@@ -19,7 +19,7 @@ module.exports = function (app) {
       
       let { stock, like } = req.query;
       if (!Array.isArray(stock)) stock = [stock]; // Ensure it's an array
-  
+      console.log("STOCK:", stock)
       if (like) {
         for (let i = 0; i < stock.length; i++) {
           try {
