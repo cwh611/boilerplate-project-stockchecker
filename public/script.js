@@ -16,14 +16,16 @@ document.getElementById("submit-btn").addEventListener("click", () => {
     .then(data => {
       if (!Array.isArray(data.stockData)) {
         output.innerHTML = `
-          <div>
-            $${data.stockData.stock}
-          </div>
-          <div>
-            $${data.stockData.price}
-          </div>
-          <div>
-            Likes: ${data.stockData.likes}
+          <div>  
+            <div>
+              $${data.stockData.stock}
+            </div>
+            <div>
+              $${data.stockData.price}
+            </div>
+            <div>
+              Likes: ${data.stockData.likes}
+            </div>
           </div>`
       } else {
         output.innerHTML = `
