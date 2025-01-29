@@ -14,41 +14,39 @@ document.getElementById("submit-btn").addEventListener("click", () => {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      const result = JSON.stringify(data);
-      console.log("RESULT:", result)
-      if (!Array.isArray(result.stockData)) {
+      if (!Array.isArray(data.stockData)) {
         output.innerHTML = `
           <div>
-            $${result.stockData.stock}
+            $${data.stockData.stock}
           </div>
           <div>
-            $${result.stockData.price}
+            $${data.stockData.price}
           </div>
           <div>
-            Likes: ${result.stockData.likes}
+            Likes: ${data.stockData.likes}
           </div>`
       } else {
         output.innerHTML = `
           <div>
             <div>
-              $${result.stockData[0].stock}
+              $${data.stockData[0].stock}
             </div>
             <div>
-              $${result.stockData[0].price}
+              $${data.stockData[0].price}
             </div>
             <div>
-              Likes: ${result.stockData[0].rel_likes}
+              Likes: ${data.stockData[0].rel_likes}
             </div>
           </div>
           <div>
             <div>
-              $${result.stockData[1].stock}
+              $${data.stockData[1].stock}
             </div>
             <div>
-              $${result.stockData[1].price}
+              $${data.stockData[1].price}
             </div>
             <div>
-              Likes: ${result.stockData[1].rel_likes}
+              Likes: ${data.stockData[1].rel_likes}
             </div>
           </div>`
       }
