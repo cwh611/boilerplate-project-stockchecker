@@ -18,10 +18,10 @@ document.getElementById("submit-btn").addEventListener("click", () => {
       if (!Array.isArray(result.stockData)) {
         output.innerHTML = `
           <div>
-            $${result.stockData.symbol}
+            $${result.stockData.stock}
           </div>
           <div>
-            $${result.stockData.latestPrice}
+            $${result.stockData.price}
           </div>
           <div>
             Likes: ${result.stockData.likes}
@@ -30,10 +30,10 @@ document.getElementById("submit-btn").addEventListener("click", () => {
         output.innerHTML = `
           <div>
             <div>
-              $${result.stockData[0].symbol}
+              $${result.stockData[0].stock}
             </div>
             <div>
-              $${result.stockData[0].latestPrice}
+              $${result.stockData[0].price}
             </div>
             <div>
               Likes: ${result.stockData[0].rel_likes}
@@ -41,10 +41,10 @@ document.getElementById("submit-btn").addEventListener("click", () => {
           </div>
           <div>
             <div>
-              $${result.stockData[1].symbol}
+              $${result.stockData[1].stock}
             </div>
             <div>
-              $${result.stockData[1].latestPrice}
+              $${result.stockData[1].price}
             </div>
             <div>
               Likes: ${result.stockData[1].rel_likes}
